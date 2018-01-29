@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  gomysql:
+    image: mysql:latest
+    restart: always
+    ports:
+      - "43306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: happybird
+      MYSQL_ROOT_DATABASE: todo
+    networks:
+      - gomysql
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+networks: 
+  gomysql:
